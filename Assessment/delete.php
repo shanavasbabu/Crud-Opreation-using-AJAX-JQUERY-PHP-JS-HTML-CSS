@@ -12,11 +12,11 @@ define('DB_NAME','db1');
         die('Could not connect:'.mysqli_connect_error());
     }
 //echo $con;die();
-$Id = $_REQUEST['id'];
+$Id = $_REQUEST['Id'];
 $sql = "DELETE FROM details WHERE Id='$Id'";
 if (mysqli_query($con, $sql)) {
-    echo "<center><h2 style='color:red'>Record deleted successfully</h2></center>";
-    echo '<center><a href="index.php">Back</a></center>';
+    echo "Record deleted successfully";
+    
 } else {
     echo "Error deleting record: " . mysqli_error($con);
 }

@@ -2,7 +2,7 @@
     color: red;
     font-size: 90%;
   }
-  input[type="submit"] {
+ #editSubmit {
     font-size: 110%;
     font-weight: 100;
     background: #006dcc;
@@ -20,7 +20,7 @@
     margin-top: 10px;
     cursor: pointer;
   }
-  input[type="submit"]:hover {
+  #editSubmit:hover {
     background: #0165b6;
   }
   input[type="reset"]:hover {
@@ -52,6 +52,14 @@
     font-size: 80%;
   }
   input {
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 2px;
+  }
+   #editSubmit {
     border: 1px solid #ccc;
     padding: 10px;
     display: block;

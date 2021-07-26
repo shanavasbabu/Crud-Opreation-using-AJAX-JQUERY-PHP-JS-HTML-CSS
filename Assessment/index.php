@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sample Assessment</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./asstes/css/index.css">
 </head>
 <body>
-    <form name="myform" action="sample.php" method="post" onsubmit="return validateform()">
+    <form name="myform" id="userForm"  method="post" onsubmit="return validateform()">
         <h2>Application Form</h2>
+        <p id="msg"></p>
         <input type="hidden" name="Id" id="id">
         <div class="row">
             <label>Full Name</label>
@@ -26,9 +28,24 @@
             <input type="text" name="phoneNo" maxlength="10">
             <div class="error" id="mobileErr"></div>
         </div>
-    <input type="submit" value="Submit">
+    <input type="submit" id="submit" value="Submit">
     <input type="reset" value="Reset All"/>
     </form>
 </body>
 <script src="./asstes/js/index.js"></script>
+<script>
+    $(document).on('submit','#userForm',function(e){
+        e.preventDefault();
+       
+        $.ajax({
+        method:"POST",
+        url: "insert.php",
+        data:$(this).serialize(),
+        success: function(data){
+        console.log(data);
+        $('#msg').html(data);
+        location.href="sample.php";
+    }});
+});
+</script>
 </html>
